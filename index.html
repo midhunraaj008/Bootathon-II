@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SKCT Results</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<style type="text/css">
+		
+		.main
+		{
+			width:1100px;;
+			margin-left:120px;
+			padding: 10px;
+			border: 2px solid grey;
+			
+		}
+		table
+		{
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 1100px;
+		}
+		td
+		{
+			border: 1px solid grey;
+			text-align: center;
+			padding: 8px;
+		}
+		</style>
+ 
+</head>
+<body>
+ 
+<script>
+ 
+function arrangeSno()
+ 
+    {
+           var i=0;
+            $('#pTable tr').each(function() {
+                $(this).find(".sNo").html(i);
+                i++;
+             });
+ 
+    }
+ 
+$(document).ready(function(){
+$('#addButId').click(function(){
+
+                   var sno=$('#pTable tr').length;
+                       trow=  "<tr><td class='sNo'>"+sno+"</td>"+
+                       "<td><input name='sem' type='text'></td>"+
+                       "<td><input name='subcode' type='text'></td>"+
+                       "<td><input name='subtitle' type='text'></td>"+
+                       "<td><input name='credits' type='text'></td>"+
+                       "<td><input name='gradepoints' type='text'></td>"+
+                      "<td><button type='button' class='rButton'>Remove</button></td></tr>";
+                       $('#pTable').append(trow);
+                    });
+                     });
+ 
+$(document).on('click', 'button.rButton', function () {
+       $(this).closest('tr').remove();
+       arrangeSno();
+     return false;
+ });
+ 
+$(".rButton").live('click', function(){
+    $(this).closest('tr').remove();
+    arrangeSno();
+     return false;
+});
+ 
+ </script>
+ <div class="main">
+<h1>Database</h1>
+
+<form method="post" action="process">
+ <b>Rollno:<input name='roll' type='text'></b><br/><br/>
+    <table id="pTable">
+        <tbody>
+        <tr>
+            <td>S.No</td>
+            <td>Semester</td>
+            <td>Subject Code</td>
+            <td>Subject Title</td>
+            <td>Credits</td>
+            <td>Grade Points</td>
+            <td>Action</td>
+        </tr>
+ 
+    </tbody></table>
+    <br/>
+        <input id="addButId" type="button" value="Add">
+ 
+    <br><br><input type="submit" value="Submit">
+     
+</form>
+</div>
+</body>
+</html>

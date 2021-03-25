@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Result</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	function productsAdd() {
+    	
+		document.getElementById("name").value="Sarujith S";
+		document.getElementById("rollno").value="18TUIT126";
+		
+    	$('#productTable tbody').append('<tr align="center">'+
+    			'<td>18CS401</td>'+
+    			'<td>3</td>'+
+    			'<td>8</td>'+
+    			'</tr>');
+    	
+    	$('#productTable tbody').append('<tr align="center">'+
+    	    	'<td>18CS402</td>'+
+    	    	'<td>3</td>'+
+    	    	'<td>9</td>'+
+    	    	'</tr>');
+    	$('#productTable tbody').append('<tr align="center">'+
+    	    	'<td>18MAS05</td>'+
+    	    	'<td>4</td>'+
+    	    	'<td>8</td>'+
+    	    	'</tr>');
+	}
+	$(document).ready(function () {
+    	productsAdd();
+	});
+</script>
+</head>
+<body>
+	<h4 align="center">Sem 4</h4>
+	Name    :<input type="text" name="name" id="name" /> <br>
+	Roll No :<input type="text" name="rollno" id="rollno" /> <br><br>
+	<table id="productTable" style="width:40%" border="1" >
+		<thead>
+			<tr>
+				<th>Subject code</th>
+				<th>Credit points</th>
+				<th>Grade points</th>
+			</tr>
+		</thead>
+		<tbody>
+<!--  			<tr>
+ 				<td>Bootstrap Business Application Template in MVC</td>
+				<td>1/29/2015</td>
+				<td>http://bit.ly/1I8ZqZg</td>
+			</tr> -->
+		</tbody>
+	</table>
+</body>
+</html>
